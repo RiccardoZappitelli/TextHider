@@ -24,6 +24,6 @@ def decoder(text: str) -> str:
 
 if __name__ == "__main__":
     encoded = encoder(input("Input: "))
-    print(f"=== Encoded ===\n{encoded}\n=== End Encoded ===")
+    print(f"<Encoded>{encoded}<End Encoded>")
     decoded = decoder(encoded)
-    print(f"=== Decoded ===\n{decoded}\n=== End Decoded ===")
+    print(f"<Decoded>{decoded}<End Decoded>") 
