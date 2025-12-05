@@ -18,8 +18,19 @@ def encode(text: str) -> str:
     return res+END
 
 def decode(text: str) -> str:
-    start_index = text.index(START)
-    end_index = text.index(END)
+    try:
+        start_index = text.index(START)
+        end_index = text.index(END)
+    except ValueError as e:
+        if not(START in text):
+            print("STARTING value not found in the text.")
+        elif not(END in text):
+            print("ENDING value not found in the text.")
+        else:
+            print(f"Unknown error:", e)
+    except Exception as e:
+            print(f"Unknown error:", e)
+
     encoded_text = text[start_index+1:end_index].replace(START, "").replace(END, "")
 
     binary = "".join([ hidden_to_bin[x] for x in encoded_text])
